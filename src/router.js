@@ -5,8 +5,8 @@ import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core
 import LogIn from './components/LogIn.vue'
 import SignUp from './components/SignUp.vue'
 import Home from './components/Home.vue'
-import Account from './components/Account.vue'
-import Transaction from './components/Transaction.vue'
+import Citas from './components/Citas.vue'
+import CAgendar_Cita from './components/Agendar_Cita.vue'
 
 const routes = [{
         path: '/user/logIn',
@@ -27,15 +27,15 @@ const routes = [{
         meta: { requiresAuth: true }
     },
     {
-        path: '/user/account',
-        name: "account",
-        component: Account,
+        path: '/user/Citas',
+        name: "Citas",
+        component: Citas,
         meta: { requiresAuth: true }
     },
     {
-        path: '/user/transaction',
-        name: "transaction",
-        component: Transaction,
+        path: '/user/CAgendar_Cita',
+        name: "CAgendar_Cita",
+        component: CAgendar_Cita,
         meta: { requiresAuth: true }
     }
 ];

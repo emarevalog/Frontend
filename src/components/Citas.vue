@@ -8,13 +8,13 @@
       </h2>
       <h2>
         Saldo:
-        <span>${{ accountByUsername.balance }} COP</span>
+        <span>${{ CitasByUsername.balance }} COP</span>
       </h2>
       <h2>
         Último Movimiento:
         <span>
-          {{ accountByUsername.lastChange.substring(0, 10) }}  
-          {{ accountByUsername.lastChange.substring(11, 19) }}
+          {{ CitasByUsername.lastChange.substring(0, 10) }}  
+          {{ CitasByUsername.lastChange.substring(11, 19) }}
         </span>
       </h2>
     </div>
@@ -30,12 +30,12 @@
                 <th>Valor</th>
             </tr>
 
-            <tr v-for="transaction in transactionByUsername" :key="transaction.id">
-                <td>{{ transaction.date.substring(0, 10) }}</td>
-                <td>{{ transaction.date.substring(11, 19) }}</td>
-                <td>{{ transaction.usernameOrigin }}</td>
-                <td>{{ transaction.usernameDestiny }}</td>
-                <td>${{ transaction.value }} COP</td>
+            <tr v-for="CAgendar_Cita in CAgendar_CitaByUsername" :key="CAgendar_Cita.id">
+                <td>{{ CAgendar_Cita.date.substring(0, 10) }}</td>
+                <td>{{ CAgendar_Cita.date.substring(11, 19) }}</td>
+                <td>{{ CAgendar_Cita.usernameOrigin }}</td>
+                <td>{{ CAgendar_Cita.usernameDestiny }}</td>
+                <td>${{ CAgendar_Cita.value }} COP</td>
             </tr>
         </table>
     </div>
@@ -48,13 +48,13 @@
 import gql from "graphql-tag";
 
 export default {
-  name: "Account",
+  name: "Citas",
 
   data: function () {
     return {
       username: localStorage.getItem("username") || "none",
-      transactionByUsername: [],
-      accountByUsername: {
+      CAgendar_CitaByUsername: [],
+      CitasByUsername: {
         balance: "",
         lastChange: "",
       }
@@ -62,10 +62,10 @@ export default {
   },
 
   apollo: {
-    transactionByUsername: {
+    CAgendar_CitaByUsername: {
       query: gql`
         query ($username: String!) {
-          transactionByUsername(username: $username) {
+          CAgendar_CitaByUsername(username: $username) {
             id
             usernameOrigin
             usernameDestiny
@@ -81,10 +81,10 @@ export default {
       },
     },
 
-    accountByUsername: {
+    CitasByUsername: {
       query: gql`
         query ($username: String!) {
-          accountByUsername(username: $username) {
+          CitasByUsername(username: $username) {
             balance
             lastChange
           }
@@ -99,8 +99,8 @@ export default {
   },
 
   created: function () {
-    this.$apollo.queries.transactionByUsername.refetch();
-    this.$apollo.queries.accountByUsername.refetch();
+    this.$apollo.queries.CAgendar_CitaByUsername.refetch();
+    this.$apollo.queries.CitasByUsername.refetch();
   }
 };
 </script>

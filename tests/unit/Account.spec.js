@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
-import Account from '@/components/Account.vue'
+import Citas from '@/components/Citas.vue'
 
-describe('Account.vue', () => {
+describe('Citas.vue', () => {
 
     let mockedData = {
         name: "Juan",
@@ -10,13 +10,13 @@ describe('Account.vue', () => {
         loaded: true
     }
 
-    let wrapper = mount(Account, {
+    let wrapper = mount(Citas, {
         data() {
             return mockedData
         }
     });
 
-    it('La asignación de datos al componente Account no funciona de acueedo con lo esperado', async() => {
+    it('La asignación de datos al componente Citas no funciona de acueedo con lo esperado', async() => {
 
         expect(wrapper.text()).toMatch("Información de su cuentaNombre: JuanSaldo: 30000 COP Correo electrónico: email@hotmail.com");
     });

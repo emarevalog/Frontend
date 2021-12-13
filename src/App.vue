@@ -6,10 +6,10 @@
       <h1> Agendamiento de Citas Médicas (ACME) </h1>
       <nav>
         <button v-if="is_auth" v-on:click="loadHome"> Inicio </button>
-        <button v-if="is_auth" v-on:click="loadAccount"> Citas </button>
+        <button v-if="is_auth" v-on:click="loadCitas"> Citas </button>
         <button v-if="is_auth" v-on:click="logOut"> Cerrar Sesión </button>
         <button v-if="!is_auth" v-on:click="loadLogIn" > Iniciar Sesión </button>
-        <button v-if="is_auth" v-on:click="loadTransaction"> AgendarCitas </button>
+        <button v-if="!is_auth" v-on:click="loadCAgendar_Cita"> Agendar Citas </button>
         <button v-if="!is_auth" v-on:click="loadSignUp" > Registrarse </button>
       </nav>
     </div>
@@ -17,12 +17,13 @@
     <div class="main-component">
       <router-view  
         v-on:completedLogIn="completedLogIn"
+        v-on:completedCAgendar_Cita="completedCAgendar_Cita"
         v-on:completedSignUp="completedSignUp"
         v-on:logOut="logOut"
       >
       </router-view>
-    </div>
-    
+    </div>    
+
 
     <div class="footer">
       <h2>Misión TIC 2022</h2>
@@ -75,12 +76,12 @@ export default {
       this.$router.push({ name: "home" });
     },
 
-    loadAccount: function () {
-			this.$router.push({ name: "account" });
+    loadCitas: function () {
+			this.$router.push({ name: "Citas" });
 		},
 
-    loadTransaction: function(){
-      this.$router.push({ name: "transaction" });
+    loadCAgendar_Cita: function(){
+      this.$router.push({ name: "CAgendar_Cita" });
     },
 
     logOut: function () {
@@ -155,6 +156,8 @@ export default {
     padding: 0%;
 
     background: #FDFEFE ;
+    
+
   }
 
  

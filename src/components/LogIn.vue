@@ -1,6 +1,14 @@
 <template>
-
+    
     <div class="logIn_user">
+
+          <div class="img">
+          <img
+          src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" 
+          alt=""
+          >
+        
+      </div>
         <div class="container_logIn_user">
             <h2>Iniciar sesión</h2>
 
@@ -93,8 +101,13 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+    
     }
 
+    .img{
+      width: 60% ;
+    }
     .logIn_user h2{
         color: #283747;
 
